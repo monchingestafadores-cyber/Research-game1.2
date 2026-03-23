@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Figurative Force</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="game-shell" id="gameShell">
+
+    <div class="top-bar" style="display:none;">
+      <div class="stat-pill left-pill">
+        <span class="stat-label">Score</span>
+        <span id="score">0</span>
+      </div>
+
+      <h1 class="logo-title">Figurative<br>Force</h1>
+
+      <div class="stat-pill right-pill">
+        <span class="stat-label">Streak</span>
+        <span id="streak">0</span>
+      </div>
+    </div>
+
+    <div id="welcomeScreen" class="screen welcome-screen">
+  <div class="welcome-logo">Figurative Force</div>
+
+  <div class="welcome-scroll">
+    <h2>Welcome Explorer!</h2>
+    <p>Are you ready to begin your adventure in the world of figurative language?</p>
+  </div>
+
+  <div class="welcome-buttons">
+    <button class="fantasy-btn green-btn" onclick="openModuleMap()">Let's Go!</button>
+    <button class="fantasy-btn orange-btn" onclick="showInstructions()">Options</button>
+  </div>
+
+  <div class="welcome-badge">Learn &amp; Play!</div>
+</div>
+
+<div id="moduleMap" class="screen module-map-screen" style="display:none;">
+  <div class="map-title">Figurative Force</div>
+
+  <div class="module-card unlocked" onclick="startModulesFromMap(1)">
+    <div class="module-left">⭐</div>
+    <div class="module-center">
+      <h3>Module 1</h3>
+      <p>Introduction to Figurative Language</p>
+      <span>Earned Points: <span id="points1">0</span></span>
+    </div>
+    <div class="module-right">LEARN</div>
+  </div>
+
+  <div class="module-card locked" id="module2Card">
+    <div class="module-left">0%</div>
+    <div class="module-center">
+      <h3>Module 2</h3>
+      <p>Descriptive and Comparison Devices</p>
+      <span>Earned Points: <span id="points2">0</span></span>
+    </div>
+    <div class="module-right">🔒</div>
+  </div>
+
+  <div class="module-card locked" id="module3Card">
+    <div class="module-left">0%</div>
+    <div class="module-center">
+      <h3>Module 3</h3>
+      <p>Sound Devices and Poetic Techniques</p>
+      <span>Earned Points: <span id="points3">0</span></span>
+    </div>
+    <div class="module-right">🔒</div>
+  </div>
+</div>
+
+    <div id="lessonBox" class="panel lesson-panel" style="display:none;">
+      <h2 class="panel-title">Learn Mode</h2>
+
+      <div class="lesson-timer-wrap">
+        <p class="lesson-timer-text">Read Time: <span id="lessonTimer">5</span>s</p>
+      </div>
+
+      <div class="scroll-card lesson-animated" id="lessonContent"></div>
+
+      <div class="lesson-nav">
+        <button class="fantasy-btn brown-btn" onclick="prevLesson()">Previous</button>
+        <button class="fantasy-btn gold-btn" id="lessonNextBtn" onclick="nextLesson()" disabled>Next</button>
+      </div>
+    </div>
+
+    <div id="gameBox" class="panel game-panel" style="display:none;">
+      <h2 id="levelTitle" class="panel-title">Game 1</h2>
+
+      <button class="settings-btn" onclick="openSettings()">⚙</button>
+
+      <div class="question-timer-wrap">
+        <p class="question-timer-text">Time Left: <span id="questionTimer">15</span>s</p>
+      </div>
+
+      <div class="progress-wrap">
+        <div id="progressBar">
+          <div id="progress"></div>
+        </div>
+      </div>
+
+      <div class="scroll-card question-scroll">
+        <p id="sentence"></p>
+      </div>
+
+      <div id="choices" class="choices-grid"></div>
+
+      <div class="action-row">
+        <button class="fantasy-btn side-btn" onclick="showHint()">
+          Hint (<span id="hintCount">0</span>)
+        </button>
+        <button class="fantasy-btn side-btn" onclick="fiftyFifty()">50/50</button>
+      </div>
+
+      <p id="hint" class="hint-text"></p>
+      <p id="result" class="result-text"></p>
+
+      <div class="bottom-row">
+        <button class="fantasy-btn next-btn" onclick="nextQuestion()">Next</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+<div id="settingsPanel" class="settings-overlay" style="display:none;">
+  <div class="settings-card">
+
+    <h2>Game Settings</h2>
+
+    <button class="fantasy-btn blue-btn" onclick="toggleMusic()">🔇 Mute / Unmute</button>
+
+    <button class="fantasy-btn gold-btn" onclick="restartGame()">🔁 Restart Game</button>
+
+    <button class="fantasy-btn brown-btn" onclick="askEndGame()">🏠 End Game</button>
+
+    <button class="fantasy-btn green-btn" onclick="closeSettings()">Close</button>
+
+  </div>
+</div>
+
+<div id="confirmEndModal" class="popup-overlay" style="display:none;">
+  <div class="popup-card">
+    <h2>End Game?</h2>
+    <p>Your current progress in this game will stop. Do you want to continue?</p>
+
+    <div class="welcome-buttons">
+      <button class="fantasy-btn brown-btn" onclick="cancelEndGame()">No</button>
+      <button class="fantasy-btn green-btn" onclick="confirmEndGame()">Yes</button>
+    </div>
+  </div>
+</div>
+
+  <audio id="bgMusic" loop>
+    <source src="music/lofi.mp3" type="audio/mpeg">
+  </audio>
+
+</body>
+</html>

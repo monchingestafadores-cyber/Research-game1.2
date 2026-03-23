@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Figurative Force</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="game-shell">
+
+    <div class="top-bar">
+      <div class="stat-pill left-pill">
+        <span class="stat-label">Score</span>
+        <span id="score">0</span>
+      </div>
+
+      <h1 class="logo-title">Figurative<br>Force</h1>
+
+      <div class="stat-pill right-pill">
+        <span class="stat-label">Streak</span>
+        <span id="streak">0</span>
+      </div>
+    </div>
+
+    <div id="menu" class="panel menu-panel">
+
+  <h2 class="panel-title">Welcome, Young Explorer!</h2>
+  <p class="panel-subtitle">
+    Study the magic of figurative language and unlock each challenge.
+  </p>
+
+  <div class="menu-buttons">
+    <button class="fantasy-btn gold-btn" onclick="startModules()">Start</button>
+    <button class="fantasy-btn blue-btn" onclick="showInstructions()">Instructions</button>
+  </div>
+
+</div>
+
+    <div id="lessonBox" class="panel lesson-panel" style="display:none;">
+  <h2 class="panel-title">Learn Mode</h2>
+
+  <div class="lesson-timer-wrap">
+    <p class="lesson-timer-text">Read Time: <span id="lessonTimer">30</span>s</p>
+  </div>
+
+  <div class="scroll-card lesson-animated" id="lessonContent"></div>
+
+  <div class="lesson-nav">
+    <button class="fantasy-btn brown-btn" onclick="prevLesson()">Previous</button>
+    <button class="fantasy-btn gold-btn" id="lessonNextBtn" onclick="nextLesson()" disabled>Next</button>
+  </div>
+</div>
+
+    <div id="gameBox" class="panel game-panel" style="display:none;">
+      <h2 id="levelTitle" class="panel-title">Game 1</h2>
+
+      <div class="progress-wrap">
+        <div id="progressBar">
+          <div id="progress"></div>
+        </div>
+      </div>
+
+      <div class="scroll-card question-scroll">
+        <p id="sentence"></p>
+      </div>
+
+      <div id="choices" class="choices-grid"></div>
+
+      <div class="action-row">
+        <button class="fantasy-btn side-btn" onclick="showHint()">Hint</button>
+        <button class="fantasy-btn side-btn" onclick="fiftyFifty()">50/50</button>
+      </div>
+
+      <p id="hint" class="hint-text"></p>
+      <p id="result" class="result-text"></p>
+
+      <div class="bottom-row">
+        <button class="fantasy-btn next-btn" onclick="nextQuestion()">Next</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
